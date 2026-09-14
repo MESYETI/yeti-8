@@ -211,8 +211,6 @@ impl Assembler<'_> {
 	}
 
 	fn match_instruction(&mut self, name: &str, params: &Vec<Node>) -> Option<&InstDef> {
-		let mut error: Option<String> = None;
-
 		'outer: for def in self.insts.iter() {
 			if (def.name != name) || (def.params.len() != params.len()) {
 				continue;
@@ -260,7 +258,7 @@ impl Assembler<'_> {
 						let v = match self.symbols.get(name) {
 							Some(value) => value,
 							None => {
-								self.add_error(&params[i], &format!(
+								self.errorSys.add(params[i].error().to_owned(), &format!(
 									"Unknown identifier '{}'", name
 								));
 								return None;
@@ -274,15 +272,11 @@ impl Assembler<'_> {
 								}
 							},
 							InstParam::N8 => {
-								if *v > 256 {
+								if *v > 255 {
 									continue 'outer;
 								}
 							},
-							InstParam::N16 => {
-								if *v > 65535 {
-									continue 'outer;
-								}
-							},
+							InstParam::N16 => {},
 							_ => {
 								continue 'outer;
 							}

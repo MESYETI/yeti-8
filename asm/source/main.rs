@@ -1,4 +1,5 @@
 #![allow(non_snake_case)]
+#![allow(unused_parens)]
 
 mod lexer;
 mod error;

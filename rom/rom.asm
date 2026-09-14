@@ -1,10 +1,8 @@
-#addr 0
-
 jmp start
 
 #d 0x00 ; padding
-ref mem_copy
-ref key_load_state
+#d16 mem_copy
+#d16 key_load_state
 
 start:
 	; set up stack
