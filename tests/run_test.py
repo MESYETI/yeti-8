@@ -18,7 +18,7 @@ class Test:
             print(output)
             return False
 
-        lines = filter(lambda line: line.startswith("$$$"), output.split("\n"))
+        lines = list(filter(lambda line: line.startswith("$$$"), output.split("\n")))
 
         for line in lines:
             parts = line[4:].split(" ")
@@ -36,7 +36,8 @@ class Test:
                         continue
 
                     if result.value != result2.value:
-                        print(f"!! Test {self.file} failed:")
+                        print("\n".join(lines))
+                        print(f"\n\n!! Test {self.file} failed:")
                         print(f"!! {result.register} should be {result.value}, but is {result2.value}")
                         return False
 
@@ -64,7 +65,14 @@ tests = {
     "add": Test("cpu/add.asm", [RegResult("a", "0C"), RegResult("b", "04"), RegResult("cd", "8004")]),
     "div": Test("cpu/div.asm", [RegResult("a", "02"), RegResult("b", "04")]),
     "mul": Test("cpu/mul.asm", [RegResult("a", "20"), RegResult("b", "04")]),
-    "sub": Test("cpu/sub.asm", [RegResult("a", "04"), RegResult("b", "04"), RegResult("cd", "7FFC")])
+    "sub": Test("cpu/sub.asm", [RegResult("a", "04"), RegResult("b", "04"), RegResult("cd", "7FFC")]),
+
+    "mov1": Test("cpu/mov1.asm", [RegResult("ab", "0808"), RegResult("cd", "0808")]),
+    "mov2": Test("cpu/mov2.asm", [RegResult("a", "08"), RegResult("cd", "0200")]),
+    "mov3": Test("cpu/mov3.asm", [RegResult("a", "08"), RegResult("cd", "0200")]),
+    "mov4": Test("cpu/mov4.asm", [RegResult("a", "FF")]),
+    "mov5": Test("cpu/mov5.asm", [RegResult("a", "FF")]),
+    "mov6": Test("cpu/mov6.asm", [RegResult("ab", "0200"), RegResult("cd", "0200")])
 }
 
 if len(sys.argv) >= 2:

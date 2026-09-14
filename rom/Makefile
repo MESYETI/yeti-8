@@ -1,2 +1,2 @@
 build:
-	customasm ../custom-asm/rules.asm rom.asm -o rom.bin
+	customasm -drom=1 ../custom-asm/rules.asm rom.asm -o rom.bin -q

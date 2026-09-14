@@ -34,7 +34,7 @@
 	mov {rd: r8}, [{value: u16}]    => 0x17 @ rd @ 0b00000 @ $le(value)
 	mov {pd: r16}, [{value: u16}]   => 0x18 @ pd @ 0b000000 @ $le(value)
 	mov [{pd: r16}], {rs: r8}       => 0x19 @ pd @ rs @ 0b000
-	mov [{pd: r16}], {ps: r16}      => 0x1A @ pd @ ps @ 0b000
+	mov [{pd: r16}], {ps: r16}      => 0x1A @ pd @ ps @ 0b0000
 	mov.b [{pd: r16}], {value: u8}  => 0x1B @ pd @ 0b000000 @ value
 	mov.w [{pd: r16}], {value: u16} => 0x1C @ pd @ 0b000000 @ $le(value)
 
@@ -115,10 +115,34 @@ VRAM_FONT = 0xCC00
 	ref {label: u16} => label
 }
 
-#bankdef cartridge
+rom = 0
+
+#if rom == 1
+{
+	#bankdef rom
+	{
+		bits = 8
+		addr = 0x0000
+		size = 0x4000
+		outp = 0
+	}
+}
+#else
+{
+	#bankdef rom
+	{
+		bits = 8
+		addr = 0x4000
+		size = 0x4000
+		outp = 0
+	}
+}
+
+#bankdef ram
 {
 	bits = 8
-	addr = 0x4000
+	addr = 0x8000
 	size = 0x4000
-	outp = 0
 }
+
+#bank rom

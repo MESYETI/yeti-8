@@ -1,0 +1,67 @@
+# Testing progress
+## CPU
+
+- [X] HALT
+- [X] MOV Rd, Rs
+- [X] MOV Pd, Ps
+- [X] MOV Rd, N8
+- [X] MOV Pd, N16
+- [X] MOV Rd, [Ps]
+- [X] MOV Pd, [Ps]
+- [X] MOV Rd, [N16]
+- [X] MOV Pd, [N16]
+- [X] MOV [Pd], Rs
+- [ ] MOV [Pd], Ps
+- [X] MOV [Pd], N8
+- [ ] MOV [Pd], N16
+- [ ] JMP N16	
+- [ ] JMP [N16]
+- [ ] JMP Pd
+- [ ] JMP [Pd]
+- [ ] CALL N16
+- [ ] CALL [N16]
+- [ ] CALL Pd
+- [ ] CALL [Pd]
+- [ ] JZ  N16
+- [ ] JNZ N16
+- [ ] JS  N16
+- [ ] JNS N16
+- [ ] JC  N16
+- [ ] JNC N16
+- [ ] RET
+- [ ] CMP Rd, Rs
+- [ ] CMP Rd, N8
+- [ ] CMP Pd, Ps
+- [ ] CMP Rd, Rs
+- [ ] CMP Rd, N8
+- [ ] CMP Pd, Ps
+- [X] ADD Rd, Rs
+- [X] SUB Rd, Rs
+- [X] MUL Rd, Rs
+- [X] DIV Rd, Rs
+- [ ] AND Rd, Rs
+- [ ] OR  Rd, Rs
+- [ ] XOR Rd, Rs
+- [X] ADD Pd, Rs
+- [X] SUB Pd, Rs
+- [ ] ICMP Rd, Rs
+- [ ] ICMP Rd, N8
+- [ ] ICMP Pd, Ps
+- [ ] SETZ
+- [ ] CLZ
+- [ ] SETS
+- [ ] CLS
+- [ ] SETC
+- [ ] CLC
+- [ ] INC Rd
+- [ ] INC Pd
+- [ ] DEC Rd
+- [ ] DEC Pd
+- [ ] SHL Rd, N4
+- [ ] SHL Pd, N4
+- [ ] SHL Rd, N4
+- [ ] SHL Pd, N4
+- [ ] SHL Rd, Rs
+- [ ] SHL Pd, Ps
+- [ ] SHR Rd, Rs
+- [ ] SHR Pd, Ps

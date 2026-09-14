@@ -1,5 +1,3 @@
-#bank cartridge
-
 mov a, 0x8
 mov b, 0x4
 add a, b
